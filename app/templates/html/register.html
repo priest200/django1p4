@@ -1,0 +1,49 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block title %}<title>Hood-Watch|Register</title>{% endblock %}
+ {% block css %}<link rel="stylesheet" href="{% static 'css/login.css' %}"> {% endblock %}
+{% block content %}
+<div class="container">
+
+<form class="login-form" method="post">
+      {% for message in messages %}
+    <div class="alert alert-danger" role="alert">
+     {{message}}
+     </div>
+    {% endfor %}
+
+    <h4 class="t-p">CREATE AN ACCOUNT</h4>
+    {% csrf_token %}
+
+  <div class="form-group">
+    <label for="username">Username</label>
+    {{form.username}}
+  </div>
+
+  <div class="form-group">
+    <label for="firstname">First Name</label>
+    {{form.first_name}}
+  </div>
+  <div class="form-group">
+      <label for="email">Email</label>
+    {{form.email}}
+  </div>
+
+  <div class="form-group">
+      <label for="password">Password</label>
+    {{form.password1}}
+  </div>
+
+     <div class="form-group">
+      <label for="confirm-password">Confirm-Password</label>
+    {{form.password2}}
+  </div>
+
+  <button type="submit" class="l-btn btn btn-primary">Sign Up</button><br>
+    <span>Already have an account?<a href="/login-user/"> Login</a></span><br>
+</form>
+</div>
+
+</body>
+</html>
+{% endblock %}

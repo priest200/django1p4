@@ -1,0 +1,164 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block title %}<title>Hood-Watch|Home</title>{% endblock %}
+ {% block css %}<link rel="stylesheet" href="{% static 'css/index.css' %}"> {% endblock %}
+
+{% block content %}
+<div class="b-section">
+<button href="/add-post/" class="btn btn-primary a-btn" data-toggle="modal" data-target="#exampleModal"> Add Post</button>
+<button class="btn btn-primary a-btn" data-toggle="modal" data-target="#exampleModal2">Add Business</button>
+<button type="button" class="btn btn-primary a-btn" data-toggle="modal" data-target="#exampleModal3"> Add Neighborhood</button>
+</div>
+
+<!--START OF ADD POST-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <form action="/add-post/" method="post">
+         {% csrf_token %}
+       <div class="form-group">
+          <label for="title">Title</label>
+         <input type="text" class="form-control" name="title"  id="title" autofocus>
+      </div>
+
+      <div class="form-group">
+        <label for="b-email">Description</label>
+        <textarea type="text" class="form-control" name="description" id="description" required></textarea>
+      </div>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!--START OF ADD BUSINESS-->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">Add Business</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/add-business/" method="post">
+         {% csrf_token %}
+       <div class="form-group">
+          <label for="b-name">Name</label>
+    <input type="text" class="form-control" name="b-name"  id="b-name" autofocus placeholder="Business Name">
+  </div>
+
+  <div class="form-group">
+    <label for="b-email">Email</label>
+    <input type="email" class="form-control" name="b-email" id="b-email" placeholder="Business Email" required>
+  </div>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!--START OF ADD NEIGHBORHOOD-->
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel3">Add Neighborhood</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/add-hood/" method="post">
+         {% csrf_token %}
+       <div class="form-group">
+          <label for="b-name">Name</label>
+    <input type="text" class="form-control" name="name"  id="name" autofocus>
+  </div>
+
+  <div class="form-group">
+    <label for="b-email">Location</label>
+    <input type="text" class="form-control" name="location" id="location" required>
+  </div>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--END OF ADD MODALS-->
+
+
+
+<div class="info-section">
+    <div class="posts">
+        <h3 class="h-h">Post/Alerts</h3>
+        {% for post in posts %}
+    <div class="post">
+        <div class="user">
+            <img class="p-image" src="{{post.user.profile.profile_pic.url}}" alt="user-pic">
+            <span class="u-name">{{post.user.username}}</span>
+            </div>
+        <p class="p-desc">{{post.description}}</p>
+        <p class="p-date">March 12, 2020</p>
+    </div>
+     {% endfor %}
+    </div>
+
+<div class="businesses">
+    <h3 class="h-h">Businesses</h3>
+    {% for business in businesses %}
+    <div class="business">
+       <div class="user">
+            <img class="p-image" src="{{business.user.profile.profile_pic.url}}" alt="user-pic">
+            <span class="u-name">{{business.user.username}}</span>
+            </div>
+        <p>{{business.name}}</p>
+        <p>{{business.email}}</p>
+    </div>
+    {% endfor %}
+</div>
+
+    <div class="contacts">
+    <h3 class="h-h">Contacts</h3>
+    {% for contact in contacts %}
+    <div class="business">
+       <div class="user">
+            <span>{{contact.name}}</span>
+            </div>
+        <p>{{contact.unit}}</p>
+        <p>{{contact.m_number}}</p>
+    </div>
+    {% endfor %}
+</div>
+
+
+</div>
+
+
+
+
+</body>
+</html>
+
+{% endblock %}

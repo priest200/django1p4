@@ -1,0 +1,35 @@
+.login-form{
+width:400px;
+margin:auto;
+margin-top:30px;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+padding:20px 20px;
+border-radius:5px;
+
+}
+.l-header{
+margin:auto;
+margin-top:20px;
+position:relative;
+left:23%;
+}
+
+.t-p{
+text-align:center;
+}
+
+.alert{
+margin-top:10px;
+width:100%;
+background-color:transparent;
+border:none;
+}
+
+.form-group{
+margin:20px 0px;
+}
+
+.l-btn{
+width:100%;
+margin:15px 0px;
+}

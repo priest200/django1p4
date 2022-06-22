@@ -1,0 +1,37 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block title %}<title>Hood Watch|Login</title>{% endblock %}
+ {% block css %}<link rel="stylesheet" href="{% static 'css/login.css' %}"> {% endblock %}
+
+{% block content %}
+<div class="container">
+
+
+<form class="login-form" method="post">
+    {% for message in messages %}
+    <div class="alert alert-danger" role="alert">
+     {{message}}
+     </div>
+    {% endfor %}
+    <h4 class="t-p">Welcome back!</h4>
+    <p class="t-p">Login to your hood</p>
+    {% csrf_token %}
+
+  <div class="form-group">
+    <input type="text" class="form-control" name="username"  id="username" autofocus placeholder="username">
+  </div>
+
+  <div class="form-group">
+    <input type="password" class="form-control" name="password" id="password" placeholder="password">
+  </div>
+
+
+  <button type="submit" class="l-btn btn btn-primary">Login</button>
+    <span>Don't have an account?<a href="/register-user/"> Register</a></span><br>
+</form>
+</div>
+
+</body>
+</html>
+
+{% endblock %}

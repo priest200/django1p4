@@ -1,0 +1,57 @@
+.container{
+padding:20px 0%;
+
+}
+#profile{
+display:flex;
+width:70vw;
+padding:20px 20px;
+border-radius:10px;
+}
+.user-profile{
+   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius:5px;
+    margin-bottom: 20px !important;
+    font-size:16px;
+    text-align: center;
+    align-items:center;
+    height:400px;
+    width:400px;
+    margin-right:30px;
+}
+
+
+.user-profile img{
+   padding:20px 30px;
+   height: 220px;
+   width:250px;
+   border-radius: 100% 100%;
+}
+
+.f-name{
+font-size:20px;
+font-weight:bold;
+}
+
+.up-form{
+ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+ padding:20px 20px;
+ width:550px;
+}
+
+.divide{
+display:flex;
+justify-content:space-between;
+}
+
+.up-btn{
+width:100%;
+font-size:18px;
+}
+
+.form-control:focus{
+    outline: none;
+}
+
+
+
